@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { DEPARTMENT_TYPES, TRONCAL_TYPES, Zone, NODE_TYPES, CEX_TYPES } from '@wow/core/interfaces';
+import { DEPARTMENT_TYPES, TRONCAL_TYPES, Zone, NODE_TYPES } from '@wow/core/interfaces';
 import { inject, Injectable, signal } from '@angular/core';
 import { ApiResponse } from '@wow/shared/interfaces';
 import { environment } from '@wow/env/environment';
@@ -20,7 +20,8 @@ export class SettingService {
 
   constructor() {
     this.getZones();
-    this.loadZoneCoverage();
+    // this.loadZoneCoverage();
+    
   }
 
   private getZones() {
@@ -52,19 +53,19 @@ export class SettingService {
     ])
   }
 
-  getSubZones(zoneId: number) {
-    return this.zones().find(zone => zone.id === zoneId);
-  }
+  // getSubZones(zoneId: number) {
+  //   return this.zones().find(zone => zone.id === zoneId);
+  // }
 
-  private loadZoneCoverage(): void {
-    if (this.zoneCorevage().length === 0) {
-      this.getAll().subscribe();
-    }
-  }
+  // private loadZoneCoverage(): void {
+  //   if (this.zoneCorevage().length === 0) {
+  //     this.getAll().subscribe();
+  //   }
+  // }
 
-  getAll() {
-    return this.http.get<ApiResponse<{ id: number; name: string }[]>>(`${environment.api.barConstruccion}/zone-coverage`).pipe(
-      tap(res => this.zoneCorevage.set(res.data ?? []))
-    );
-  }
+  // getAll() {
+  //   return this.http.get<ApiResponse<{ id: number; name: string }[]>>(`${environment.api.barConstruccion}/zone-coverage`).pipe(
+  //     tap(res => this.zoneCorevage.set(res.data ?? []))
+  //   );
+  // }
 }
