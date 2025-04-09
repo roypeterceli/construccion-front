@@ -1,0 +1,14 @@
+:root {
+
+  .mat-mdc-nav-list {
+
+    .mat-mdc-list-item {
+      @apply rounded-full;
+
+      &.mdc-list-item--activated {
+        @apply bg-primary-700/10;
+      }
+    }
+  }
+
+}

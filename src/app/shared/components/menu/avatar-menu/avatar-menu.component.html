@@ -1,0 +1,15 @@
+<div class="flex items-center justify-end h-full user-info pr-10 gap-4 bg-purple-900 cursor-pointer"
+     matRipple [matMenuTriggerFor]="menu">
+  <div class="text-right pl-10">
+    <h2 class="text-base leading-4">{{ userName }}</h2>
+    <h5 class="text-base leading-4 line-clamp-1 py-1.5" [title]="cexName">Centro de atención: {{ cexName }}</h5>
+    <p class="text-xs opacity-75 text-purple-400">{{ userRole }}</p>
+  </div>
+  <div class="bg-orange-500 h-12 w-12 flex justify-center items-center rounded-full">
+    <div>D</div>
+  </div>
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="logout()">Salir</button>
+</mat-menu>

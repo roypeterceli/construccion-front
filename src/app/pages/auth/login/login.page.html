@@ -1,0 +1,44 @@
+<div @fadeInUp class="overflow-hidden max-w-md border bg-white rounded-lg w-96">
+  <div class="p-6 pb-0 flex flex-col items-center justify-center">
+    <div class="fill-current text-center">
+      <img class="w-36" src="images/wowperu-logo-color.svg"/>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <h2 class="text-lg font-semibold m-0">Bienvenido</h2>
+    <h4 class="text-gray-700 font-medium m-0">
+      Ingresa con tus credenciales
+    </h4>
+  </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()"
+        class="p-6 flex flex-col gap-4">
+    <div class="flex flex-col">
+      <mat-form-field class="flex-1" appearance="outline">
+        <mat-label>E-Mail</mat-label>
+        <input type="text" matInput formControlName="email" />
+      </mat-form-field>
+      <mat-form-field class="flex-1" appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input
+          [type]="hidden() ? 'password' : 'text'"
+          formControlName="password"
+          matInput/>
+        <button
+          mat-icon-button
+          matIconSuffix
+          (click)="toggleVisibility($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidden()"
+          type="button">
+          <mat-icon>{{ hidden() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <button mat-flat-button type="submit">
+      Iniciar sesión
+    </button>
+  </form>
+</div>

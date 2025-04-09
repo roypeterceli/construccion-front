@@ -1,0 +1,10 @@
+<button type="button"
+        [ngClass]="{
+          '!bg-orange-600 text-white': color() === 'secondary'
+        }"
+        mat-flat-button>
+  @if (icon()) {
+    <mat-icon>{{ icon() }}</mat-icon>
+  }
+  <ng-content></ng-content>
+</button>
